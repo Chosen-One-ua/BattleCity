@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/UserTank.qml</file>
+        <file>images/Bullet.png</file>
+        <file>qml/EnemyTank.qml</file>
+        <file>qml/Bullet.qml</file>
+        <file>qml/Obstacle.qml</file>
+        <file>images/Brick.png</file>
+        <file>images/Eagle.png</file>
+        <file>images/Steel.png</file>
+        <file>images/Water.png</file>
+        <file>images/GrayFastTank.png</file>
+        <file>images/GrayNormalTank.png</file>
+        <file>images/YellowNormalTank.png</file>
+    </qresource>
+</RCC>

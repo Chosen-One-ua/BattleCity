@@ -1,0 +1,58 @@
+#ifndef DYNAMICMAPOBJECT_H
+#define DYNAMICMAPOBJECT_H
+
+#include "mapobject.h"
+
+class DynamicMapObject : public MapObject
+{
+    Q_OBJECT
+    //Q_PROPERTY(Type type READ getType)
+    //Q_PROPERTY(int rotation READ getRotation WRITE setRotation /*NOTIFY rotationChanged*/)
+    
+    Q_PROPERTY(Direction direction READ getDirection NOTIFY directionChanged)
+    
+    //Q_PROPERTY(int key READ getKeyPressed WRITE setKeyPressed)
+    //Q_PROPERTY(QString removeObject READ removeObject WRITE setRemoveObject)
+    //Q_PROPERTY(bool animationPaused READ getAnimationPaused NOTIFY animationPausedChanged)
+
+public:
+    enum Type { USERTANK, ENEMYTANK, BULLET };
+    enum Direction { UP, DOWN, RIGHT, LEFT };
+
+    explicit DynamicMapObject(QObject *parent = 0, int rotation = 0, Type type = USERTANK);
+
+    virtual int      getRotation() const { return rotation; }
+    virtual Type     getType() const { return type; }
+    virtual const QString& getDirection() const { return direction; }
+    //virtual const QString& getImageSource() const;
+    //bool getAnimationPaused() const;
+    //virtual int      getKeyPressed() const;
+
+    virtual void setDirection(QString& direction) { this->direction = direction; }
+    virtual void setRotation(int rotation) { this->rotation = rotation; }
+
+    //void setStageMediator(StageMediator*);
+    //explicit AnimatedBoardObject(QObject *parent = 0, int rotation = 0, ObjectType type = TYPE_NONE, StageMediator* stage = nullptr);
+    //void setControlKeyPressed(int);
+    //QString removeObject() const;
+    //void setRemoveObject(QString);
+    //const int objectWidth = 64;
+    //const int objectHeight = 64;
+    //virtual int getWidth() const;
+    //virtual int getHeight() const;
+
+    //~AnimatedBoardObject();
+signals:
+    //void animationPausedChanged(bool);
+    void directionChanged();
+
+public slots :
+protected:
+    Type        type;
+    Direction   direction;
+    //StageMediator* _stage;
+    //virtual BoardObject* constructByCharImpl(QObject *parent, char dataChar, unsigned int position);
+    //bool _animationPaused;
+};
+
+#endif // DYNAMICMAPOBJECT_H
